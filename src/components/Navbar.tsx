@@ -39,10 +39,8 @@ import { useNavigate } from "react-router-dom";
 function Navbar() {
   const navigateTo = useNavigate();
 
-  const [loggedIn, setLoggedIn] = React.useState(false);
-  const [userName, setUserName] = React.useState("Gonzu");
-  setUserName("Gonzu");
-  setLoggedIn(false);
+  const [loggedIn] = React.useState(false);
+  const [userName] = React.useState("Gonzu");
 
   return (
     <NavigationMenu

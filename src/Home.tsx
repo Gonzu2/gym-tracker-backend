@@ -35,7 +35,6 @@ import "./css/home.css";
 
 function Home() {
   const [userName, setUserName] = React.useState("Gonzu");
-  setUserName("Gonzu")
   const [chosenCategory, setChosenCategory] = React.useState("workout-tracker");
 
   return (
