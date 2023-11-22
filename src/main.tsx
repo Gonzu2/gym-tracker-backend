@@ -2,8 +2,6 @@ import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 
 import {
-  createBrowserRouter,
-  RouterProvider,
   BrowserRouter,
   Routes,
   Route,
@@ -23,30 +21,6 @@ import PageNotFound from "./PageNotFound.tsx";
 //Loading external components that will always be displayed.
 import Navbar from "./components/Navbar.tsx";
 import Footer from "./components/Footer.tsx";
-
-//Router config
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
-  },
-  {
-    path: "/dashboard",
-    element: <Dashboard />,
-  },
-  {
-    path: "*",
-    element: <PageNotFound />,
-  },
-]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

@@ -7,17 +7,17 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
+// import {
+//   AlertDialog,
+//   AlertDialogAction,
+//   AlertDialogCancel,
+//   AlertDialogContent,
+//   AlertDialogDescription,
+//   AlertDialogFooter,
+//   AlertDialogHeader,
+//   AlertDialogTitle,
+//   AlertDialogTrigger,
+// } from "@/components/ui/alert-dialog";
 
 import {
   DropdownMenu,
@@ -35,6 +35,7 @@ import "./css/home.css";
 
 function Home() {
   const [userName, setUserName] = React.useState("Gonzu");
+  setUserName("Gonzu")
   const [chosenCategory, setChosenCategory] = React.useState("workout-tracker");
 
   return (

@@ -7,21 +7,11 @@ import {
   faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-} from "@/components/ui/navigation-menu";
+import { NavigationMenu } from "@/components/ui/navigation-menu";
 
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -33,7 +23,6 @@ import {
   AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
@@ -46,16 +35,20 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import "./css/navbar.css";
 
 import { useNavigate } from "react-router-dom";
-import { spawn } from "child_process";
 
 function Navbar() {
   const navigateTo = useNavigate();
 
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [userName, setUserName] = React.useState("Gonzu");
+  setUserName("Gonzu");
+  setLoggedIn(false);
 
   return (
-    <NavigationMenu style={{width: "100%"}} className=" max-w-[100dvw] justify-start bg-[#19191] border-b-[1px] border-b-[#2b2a2a] box-border relative overflow-hidden">
+    <NavigationMenu
+      style={{ width: "100%" }}
+      className=" max-w-[100dvw] justify-start bg-[#19191] border-b-[1px] border-b-[#2b2a2a] box-border relative overflow-hidden"
+    >
       <ul className="flex items-center justify-between w-[100%] box-border relative">
         <li className="navbar-brand">
           <a href="/">Gym Tracker</a>
