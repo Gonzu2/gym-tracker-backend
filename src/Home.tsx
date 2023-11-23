@@ -136,11 +136,11 @@ function Home() {
 
       <div className="w-[80%] max-[410px]:w-[100%] min-h-[800px] h-[80%] rounded-lg border-[#2c2a2a] border-2 z-10 overflow-x-hidden overflow-y-auto bg-[#191919] box-border relative">
         <nav className="flex flex-row justify-between items-center w-[100%] border-b-2 border-b-[#2c2a2a]">
-          <div className="flex flex-row gap-[5px]">
-            <h1 className="text-xl border-r-2 border-r-[#2c2a2a] pr-[10px] cursor-pointer max-[768px]:border-none">
+          <div className="flex flex-row gap-[5px] max-[768px]:hidden">
+            <h1 className="text-xl border-r-2 border-r-[#2c2a2a] pr-[10px] cursor-pointer max-[768px]:border-none ">
               Dashboard
             </h1>
-            <ul className="flex flex-row justify-start items-center gap-[10px] max-[768px]:hidden">
+            <ul className="flex flex-row justify-start items-center gap-[10px] ">
               <li
                 className="pl-[5px] text-md cursor-pointer"
                 onClick={() => setChosenCategory("workout-tracker")}
@@ -151,7 +151,7 @@ function Home() {
                 className="text-md cursor-pointer"
                 onClick={() => setChosenCategory("workout-plan")}
               >
-                Workout plan
+                Workout planner
               </li>
               <li
                 className="text-md cursor-pointer"
@@ -162,15 +162,38 @@ function Home() {
             </ul>
           </div>
 
+          <div className="category-dashboard">
+            <DropdownMenu>
+              <DropdownMenuTrigger>Category</DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem
+                  onClick={() => setChosenCategory("workout-tracker")}
+                >
+                  Workout Tracker
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => setChosenCategory("workout-plan")}
+                >
+                  Workout planner
+                </DropdownMenuItem>
+                <DropdownMenuItem
+                  onClick={() => setChosenCategory("excersises")}
+                >
+                  Excersises
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+
           <DropdownMenu>
             <DropdownMenuTrigger>
               <Avatar>
                 <AvatarImage src="https://github.com/shadcn.png" />
-                <AvatarFallback>{userName}</AvatarFallback>
+                <AvatarFallback>Gonzu</AvatarFallback>
               </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
-              <DropdownMenuLabel>{userName}</DropdownMenuLabel>
+              <DropdownMenuLabel>Gonzu</DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Profile</DropdownMenuItem>
               <DropdownMenuItem>Log out</DropdownMenuItem>
@@ -185,12 +208,14 @@ function Home() {
               </h1>
             </>
           ) : (
-            <></>
+            <>
+              
+            </>
           )}
           {chosenCategory === "workout-plan" ? (
             <>
               <h1 className="text-2xl font-bold cursor-pointer transtion ease hover:opacity-80 duration-300">
-                Workout plan
+                Workout Planner
               </h1>
             </>
           ) : (
