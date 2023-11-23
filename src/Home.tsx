@@ -28,6 +28,25 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 //Importing needed elements.
@@ -35,9 +54,76 @@ import "./css/home.css";
 
 function Home() {
   const [chosenCategory, setChosenCategory] = React.useState("workout-tracker");
+  const [chosenDay, setChosenDay] = React.useState("monday");
+
+  let templateExcersises = {
+    0: {
+      dayIndex: 0,
+      day: "monday",
+      excersises: [
+        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
+        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
+        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+      ],
+    },
+    1: {
+      dayIndex: 1,
+      day: "tuesday",
+      excersises: [
+        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
+        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
+        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+      ],
+    },
+    2: {
+      dayIndex: 2,
+      day: "wednesday",
+      excersises: [
+        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
+        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
+        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+      ],
+    },
+    3: {
+      dayIndex: 3,
+      day: "thursday",
+      excersises: [
+        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
+        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
+        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+      ],
+    },
+    4: {
+      dayIndex: 4,
+      day: "friday",
+      excersises: [
+        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
+        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
+        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+      ],
+    },
+    5: {
+      dayIndex: 5,
+      day: "saturtday",
+      excersises: [
+        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
+        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
+        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+      ],
+    },
+    6: {
+      dayIndex: 6,
+      day: "sunday",
+      excersises: [
+        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
+        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
+        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+      ],
+    },
+  };
 
   return (
-    <div className="flex flex-col gap-[100px] justify-start items-center w-[100dvw] h-screen box-border relative p-[25px] overflow-y-auto overflow-x-hidden">
+    <div className="flex flex-col gap-[100px] justify-start items-center w-[100dvw] h-auto h-screen box-border relative p-[25px]">
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +158,7 @@ function Home() {
         </path>
       </svg>
 
-      <ul className="flex flex-col items-start justify-start w-[80%] max-[410px]:w-[100%]">
+      <ul className="flex flex-col items-start justify-start w-[80%] max-[600px]:w-[100%]">
         <li>
           <ul className="gap-[50px] flex flex-row items-start justify-start w-[100%] mt-[15px] box-border relative max-[1280px]:flex-col">
             <li className="w-[50%] max-[1280px]:w-[100%]">
@@ -133,7 +219,7 @@ function Home() {
         </li>
       </ul>
 
-      <div className="w-[80%] max-[410px]:w-[100%] min-h-[800px] h-[80%] rounded-lg border-[#2c2a2a] border-2 z-10 overflow-x-hidden overflow-y-auto bg-[#191919] box-border relative">
+      <div className="w-[80%] max-[600px]:w-[100%] min-h-[800px] h-[80%] rounded-lg border-[#2c2a2a] border-2 z-10 overflow-x-hidden overflow-y-auto bg-[#191919] box-border relative">
         <nav className="flex flex-row justify-between items-center w-[100%] border-b-2 border-b-[#2c2a2a]">
           <div className="flex flex-row gap-[5px] max-[768px]:hidden">
             <h1 className="text-xl border-r-2 border-r-[#2c2a2a] pr-[10px] cursor-pointer max-[768px]:border-none ">
@@ -202,14 +288,48 @@ function Home() {
         <div className="p-[15px] text-white w-[100%] flex flex-col justify-start items-start gap-[25px]">
           {chosenCategory === "workout-tracker" ? (
             <>
-              <h1 className="text-2xl font-bold cursor-pointer transtion ease hover:opacity-80 duration-300">
-                Workout Tracker
-              </h1>
+              <ul className="flex flex-row justify-between items-center w-[100%]">
+                <li className="text-lg font-bold cursor-pointer transtion ease hover:opacity-80 duration-300">
+                  Workout Tracker
+                </li>
+                <li>
+                  <Select
+                    onValueChange={(event) => {
+                      setChosenDay(event);
+                    }}
+                  >
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Select a day" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectItem value="0">Monday</SelectItem>
+                        <SelectItem value="1">Tuesday</SelectItem>
+                        <SelectItem value="2">Wednesday</SelectItem>
+                        <SelectItem value="3">Thursday</SelectItem>
+                        <SelectItem value="4">Friday</SelectItem>
+                        <SelectItem value="5">Saturday</SelectItem>
+                        <SelectItem value="6">Sunday</SelectItem>
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </li>
+              </ul>
+              <Card className="w-[50%] max-[1450px]:w-[100%]  h-auto min-h-[350px] bg-[#191919]">
+                <CardHeader>
+                  <CardTitle>Excersise Name</CardTitle>
+                  <CardDescription>Excersise Description</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p>Card Content</p>
+                </CardContent>
+                <CardFooter>
+                  <p>Card Footer</p>
+                </CardFooter>
+              </Card>
             </>
           ) : (
-            <>
-              
-            </>
+            <></>
           )}
           {chosenCategory === "workout-plan" ? (
             <>
