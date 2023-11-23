@@ -34,7 +34,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import "./css/home.css";
 
 function Home() {
-  const [userName] = React.useState("Gonzu");
   const [chosenCategory, setChosenCategory] = React.useState("workout-tracker");
 
   return (
