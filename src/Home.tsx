@@ -377,7 +377,7 @@ function Home() {
         id="blobSvg"
         style={{
           opacity: "1",
-          position: "absolute",
+          position: "fixed",
           left: "-300px",
           top: "-350px",
         }}
