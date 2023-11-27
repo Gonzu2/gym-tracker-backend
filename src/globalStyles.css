@@ -17,6 +17,8 @@
   position: relative;
   font-family: "Montserrat", "sans-serif";
   box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 body {
@@ -55,13 +57,13 @@ h6 {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: #d6dee178;
   border-radius: 10px;
-  border: 2px solid transparent;
+  border: none solid transparent;
   background-clip: content-box;
 }
 

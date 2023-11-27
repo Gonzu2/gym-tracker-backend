@@ -7,18 +7,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-// import {
-//   AlertDialog,
-//   AlertDialogAction,
-//   AlertDialogCancel,
-//   AlertDialogContent,
-//   AlertDialogDescription,
-//   AlertDialogFooter,
-//   AlertDialogHeader,
-//   AlertDialogTitle,
-//   AlertDialogTrigger,
-// } from "@/components/ui/alert-dialog";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -29,23 +17,17 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-
-import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+
+import { Input } from "@/components/ui/input";
+
+import { Checkbox } from "@/components/ui/checkbox";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
@@ -53,77 +35,340 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import "./css/home.css";
 
 function Home() {
-  const [chosenCategory, setChosenCategory] = React.useState("workout-tracker");
-  const [chosenDay, setChosenDay] = React.useState("monday");
-
   let templateExcersises = {
     0: {
       dayIndex: 0,
-      day: "monday",
+      day: "Monday",
       excersises: [
-        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
-        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
-        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+        {
+          excersiseNumber: 1,
+          excersiseName: "Bench Press",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 2,
+          excersiseName: "Deadlift",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 3,
+          excersiseName: "Squats",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
       ],
     },
     1: {
       dayIndex: 1,
-      day: "tuesday",
+      day: "Tuesday",
       excersises: [
-        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
-        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
-        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+        {
+          excersiseNumber: 1,
+          excersiseName: "Bench Press",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 2,
+          excersiseName: "Deadlift",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 3,
+          excersiseName: "Squats",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
       ],
     },
     2: {
       dayIndex: 2,
-      day: "wednesday",
+      day: "Wednesday",
       excersises: [
-        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
-        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
-        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+        {
+          excersiseNumber: 1,
+          excersiseName: "Bench Press",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 2,
+          excersiseName: "Deadlift",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 3,
+          excersiseName: "Squats",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
       ],
     },
     3: {
       dayIndex: 3,
-      day: "thursday",
+      day: "Thursday",
       excersises: [
-        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
-        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
-        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+        {
+          excersiseNumber: 1,
+          excersiseName: "Bench Press",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 2,
+          excersiseName: "Deadlift",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 3,
+          excersiseName: "Squats",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
       ],
     },
     4: {
       dayIndex: 4,
-      day: "friday",
+      day: "Friday",
       excersises: [
-        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
-        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
-        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+        {
+          excersiseNumber: 1,
+          excersiseName: "Bench Press",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 2,
+          excersiseName: "Deadlift",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 3,
+          excersiseName: "Squats",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
       ],
     },
     5: {
       dayIndex: 5,
-      day: "saturtday",
+      day: "Saturtday",
       excersises: [
-        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
-        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
-        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+        {
+          excersiseNumber: 1,
+          excersiseName: "Bench Press",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 2,
+          excersiseName: "Deadlift",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 3,
+          excersiseName: "Squats",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
       ],
     },
     6: {
       dayIndex: 6,
-      day: "sunday",
+      day: "Sunday",
       excersises: [
-        { excersiseNumber: 1, excersiseName: "Bench Press", reps: 12, sets: 3 },
-        { excersiseNumber: 2, excersiseName: "Deadlift", reps: 12, sets: 3 },
-        { excersiseNumber: 3, excersiseName: "Squats", reps: 12, sets: 3 },
+        {
+          excersiseNumber: 1,
+          excersiseName: "Bench Press",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 2,
+          excersiseName: "Deadlift",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
+        {
+          excersiseNumber: 3,
+          excersiseName: "Squats",
+          reps: 12,
+          sets: 3,
+          images: {
+            "https://static.strengthlevel.com/images/illustrations/bench-press-2-1000x1000.jpg":
+              String,
+            "https://static.strengthlevel.com/images/illustrations/bench-press-1-1000x1000.jpg":
+              String,
+          },
+        },
       ],
     },
   };
 
+  type DayIndex = keyof typeof templateExcersises;
+
+  const [chosenCategory, setChosenCategory] = React.useState("workout-tracker");
+
+  const [chosenDay, setChosenDay] = React.useState<DayIndex>(
+    (new Date().getDay() - 1) as DayIndex
+  );
+
+  const [completedExercises, setCompletedExercises] = React.useState(
+    Array(templateExcersises[chosenDay].excersises.length).fill(false)
+  );
+
+  const [completedCount, setCompletedCount] = React.useState(0);
+
+  // Function to update the completion status for a specific exercise index
+  const handleExerciseCompletion = (index: number) => {
+    const updatedCompletion = [...completedExercises];
+    updatedCompletion[index] = !updatedCompletion[index];
+    setCompletedExercises(updatedCompletion);
+
+    const completedCount = updatedCompletion.filter(
+      (completed) => completed
+    ).length;
+    setCompletedCount(completedCount);
+  };
+
+  function handleDayChange(event: string) {
+    const numericValue = parseInt(event, 10);
+    setChosenDay(numericValue as DayIndex);
+    setCompletedCount(0);
+    setCompletedExercises(
+      Array(templateExcersises[chosenDay].excersises.length).fill(false)
+    );
+  }
+
   return (
-    <div className="flex flex-col gap-[100px] justify-start items-center w-[100dvw] h-auto h-screen box-border relative p-[25px]">
+    <div className="flex flex-col gap-[100px] justify-start items-center w-[100dvw] h-auto box-border relative p-[25px]">
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -158,7 +403,7 @@ function Home() {
         </path>
       </svg>
 
-      <ul className="flex flex-col items-start justify-start w-[80%] max-[600px]:w-[100%]">
+      <ul className="flex flex-col items-start justify-start w-[80%] max-[750px]:w-[100%]">
         <li>
           <ul className="gap-[50px] flex flex-row items-start justify-start w-[100%] mt-[15px] box-border relative max-[1280px]:flex-col">
             <li className="w-[50%] max-[1280px]:w-[100%]">
@@ -219,10 +464,10 @@ function Home() {
         </li>
       </ul>
 
-      <div className="w-[80%] max-[600px]:w-[100%] min-h-[800px] h-[80%] rounded-lg border-[#2c2a2a] border-2 z-10 overflow-x-hidden overflow-y-auto bg-[#191919] box-border relative">
+      <div className="w-[80%] max-[750px]:w-[100%] h-[800px] max-h-[800px] rounded-lg border-[#2c2a2a] border-2 z-10 overflow-x-hidden overflow-y-auto bg-[#191919] box-border relative">
         <nav className="flex flex-row justify-between items-center w-[100%] border-b-2 border-b-[#2c2a2a]">
-          <div className="flex flex-row gap-[5px] max-[768px]:hidden">
-            <h1 className="text-xl border-r-2 border-r-[#2c2a2a] pr-[10px] cursor-pointer max-[768px]:border-none ">
+          <div className="flex flex-row gap-[5px] max-[790px]:hidden">
+            <h1 className="text-xl border-r-2 border-r-[#2c2a2a] pr-[10px] cursor-pointer max-[790px]:border-none ">
               Dashboard
             </h1>
             <ul className="flex flex-row justify-start items-center gap-[10px] ">
@@ -247,7 +492,7 @@ function Home() {
             </ul>
           </div>
 
-          <div className="category-dashboard">
+          <div className="category-dashboard max-[790px]:flex hidden">
             <DropdownMenu>
               <DropdownMenuTrigger>Category</DropdownMenuTrigger>
               <DropdownMenuContent>
@@ -285,7 +530,10 @@ function Home() {
             </DropdownMenuContent>
           </DropdownMenu>
         </nav>
-        <div className="p-[15px] text-white w-[100%] flex flex-col justify-start items-start gap-[25px]">
+        <div
+          style={{ height: "calc(100% - 75px)" }}
+          className="p-[15px] text-white w-[100%] flex flex-col justify-start items-start gap-[15px]"
+        >
           {chosenCategory === "workout-tracker" ? (
             <>
               <ul className="flex flex-row justify-between items-center w-[100%]">
@@ -294,12 +542,12 @@ function Home() {
                 </li>
                 <li>
                   <Select
-                    onValueChange={(event) => {
-                      setChosenDay(event);
-                    }}
+                    onValueChange={(event: string) => handleDayChange(event)}
                   >
                     <SelectTrigger className="w-[180px]">
-                      <SelectValue placeholder="Select a day" />
+                      <SelectValue
+                        placeholder={templateExcersises[chosenDay].day}
+                      />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectGroup>
@@ -315,18 +563,98 @@ function Home() {
                   </Select>
                 </li>
               </ul>
-              <Card className="w-[50%] max-[1450px]:w-[100%]  h-auto min-h-[350px] bg-[#191919]">
-                <CardHeader>
-                  <CardTitle>Excersise Name</CardTitle>
-                  <CardDescription>Excersise Description</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p>Card Content</p>
-                </CardContent>
-                <CardFooter>
-                  <p>Card Footer</p>
-                </CardFooter>
-              </Card>
+              {/* <ul>
+                {templateExcersises[chosenDay].excersises.map(
+                  (workout, index) => (
+                    <li key={index}>
+                      <Card className="w-[50%] max-[1450px]:w-[100%]  h-auto min-h-[350px] bg-[#191919]">
+                        <CardHeader>
+                          <CardTitle>{workout.excersiseName}</CardTitle>
+                          <CardDescription>{`Reps: ${workout.reps}, Sets: ${workout.sets}`}</CardDescription>
+                        </CardHeader>
+                      </Card>
+                    </li>
+                  )
+                )}
+              </ul> */}
+              <ul className="w-[100%] h-[100%] bg-[#191919] pb-[15px] px-[15px] border-2 border-[#2c2a2a] rounded-md flex flex-col justify-start items-start gap-[15px] overflow-x-hidden overflow-y-auto box-border relative">
+                <div className="flex flex-row justify-between items-center w-[100%] max-[470px]:flex-col max-[470px]:justify-start max-[470px]:items-start sticky top-0 bg-[#191919] pt-[10px] pb-[10px] z-10">
+                  <h1 className="cursor-pointer">
+                    {templateExcersises[chosenDay].day} workout
+                  </h1>
+                  <h1>Excersises completed - {completedCount}</h1>
+                </div>
+                {templateExcersises[chosenDay].excersises.map(
+                  (workout, index) => (
+                    <li
+                      key={index}
+                      className={`w-[100%] h-auto border-2 border-[#2c2a2a] rounded-md flex flex-col justify-start items-start gap-[10px] p-[10px] ${
+                        completedExercises[index]
+                          ? "border-[#323b95]"
+                          : "border-[#2c2a2a]"
+                      }`}
+                    >
+                      <div className="flex flex-row justify-between items-center w-[100%] max-[470px]:flex-col max-[470px]:justify-start max-[470px]:items-start max-[470px]:gap-[10px]">
+                        <h1 className="cursor-pointer text-md font-medium">
+                          {index + 1}. {workout.excersiseName}
+                        </h1>
+                        <div className="grid gap-1.5 leading-none">
+                          <label
+                            key={`terms${index}`}
+                            htmlFor={`terms${index}`}
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex flex-row justify-start items-center gap-[5px]"
+                          >
+                            <Checkbox
+                              onCheckedChange={() => {
+                                handleExerciseCompletion(index);
+                              }}
+                              checked={completedExercises[index]}
+                              id={`terms${index}`}
+                            />
+                            Excersise completed
+                          </label>
+                        </div>
+                      </div>
+                      <div className="w-[100%] flex flex-row justify-between items-start gap-[25px] max-[1350px]:flex-col max-[1350px]:justify-start max-[1350px]:items-start box-border relative">
+                        <ul className="flex flex-col gap-[10px] justify-start items-start w-[35%] max-[1350px]:w-[100%]">
+                          {Array.from(
+                            { length: workout.sets },
+                            (_, setIndex) => (
+                              <li
+                                className="flex flex-col justify-start items-start gap-[5px] min-w[250px] max-w-[420px] max-[1350px]:max-w-none w-[100%]"
+                                key={setIndex}
+                              >
+                                <h1>Set {setIndex + 1} reps</h1>
+                                <Input
+                                  type="number"
+                                  placeholder={String(workout.reps)}
+                                  min={0}
+                                ></Input>
+                              </li>
+                            )
+                          )}
+                        </ul>
+                        <ul className="flex flex-row gap-[25px] justify-between items-center w-[100%] max-[1075px]:flex-col max-[1075px]:justify-center max-[1075px]:items-center box-border relative">
+                          {Object.keys(workout.images).map(
+                            (imageKey, setIndex) => (
+                              <li
+                                className=" w-[350px] h-[350px] max-[1075px]:w-[100%] max-[1075px]:h-[auto]"
+                                key={setIndex}
+                              >
+                                <img
+                                  className="rounded-md"
+                                  src={imageKey}
+                                  alt={`Image ${setIndex + 1}`}
+                                />
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    </li>
+                  )
+                )}
+              </ul>
             </>
           ) : (
             <></>

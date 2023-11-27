@@ -1,8 +1,0 @@
-.category-dashboard {
-  display: none;
-}
-@media screen and (width <= 768px) {
-  .category-dashboard {
-    display: flex;
-  }
-}

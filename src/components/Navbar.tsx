@@ -44,8 +44,7 @@ function Navbar() {
 
   return (
     <NavigationMenu
-      style={{ width: "100%" }}
-      className=" max-w-[100dvw] justify-start bg-[#19191] border-b-[1px] border-b-[#2b2a2a] box-border relative overflow-hidden"
+      className=" w-[100%] max-w-[100dvw] justify-start bg-[#19191] border-b-[1px] border-b-[#2b2a2a] box-border relative overflow-hidden"
     >
       <ul className="flex items-center justify-between w-[100%] box-border relative">
         <li className="navbar-brand">
