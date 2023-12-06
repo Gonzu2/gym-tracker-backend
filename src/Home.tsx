@@ -594,7 +594,7 @@ function Home() {
                           : "border-[#2c2a2a]"
                       }`}
                     >
-                      <div className="flex flex-row justify-between items-center w-[100%] max-[470px]:flex-col max-[470px]:justify-start max-[470px]:items-start max-[470px]:gap-[10px]">
+                      <div className="w-[100%] flex flex-row justify-between items-center max-[470px]:flex-col max-[470px]:justify-start max-[470px]:items-start max-[470px]:gap-[10px]">
                         <h1 className="cursor-pointer text-md font-medium">
                           {index + 1}. {workout.excersiseName}
                         </h1>
@@ -616,7 +616,7 @@ function Home() {
                         </div>
                       </div>
                       <div className="w-[100%] flex flex-row justify-between items-start gap-[25px] max-[1350px]:flex-col max-[1350px]:justify-start max-[1350px]:items-start box-border relative">
-                        <ul className="flex flex-col gap-[10px] justify-start items-start w-[35%] max-[1350px]:w-[100%]">
+                        <ul className="flex flex-col gap-[10px] justify-start items-start w-[100%] max-w-[420px] max-[1100px]:max-w-[100%] max-[1350px]:w-[100%] ">
                           {Array.from(
                             { length: workout.sets },
                             (_, setIndex) => (
@@ -634,11 +634,11 @@ function Home() {
                             )
                           )}
                         </ul>
-                        <ul className="flex flex-row gap-[25px] justify-between items-center w-[100%] max-[1075px]:flex-col max-[1075px]:justify-center max-[1075px]:items-center box-border relative">
+                        <ul className="flex flex-row gap-[25px] justify-between items-center w-[100%] max-w-[750px] max-[1080px]:flex-col max-[1080px]:justify-center max-[1080px]:items-center box-border relative">
                           {Object.keys(workout.images).map(
                             (imageKey, setIndex) => (
                               <li
-                                className=" w-[350px] h-[350px] max-[1075px]:w-[100%] max-[1075px]:h-[auto]"
+                                className=" w-[350px] h-[350px] max-[1080px]:w-[100%] max-[1080px]:h-[auto]"
                                 key={setIndex}
                               >
                                 <img
