@@ -3,5 +3,12 @@
 }
 
 .recharts-tooltip-item {
-    color:black  !important;
+  color: black !important;
+}
+
+.excersise-name {
+  background: linear-gradient(90deg, #fff 0%, #323b95 157.49%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
