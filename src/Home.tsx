@@ -247,7 +247,7 @@ function Home() {
   const [chosenCategory, setChosenCategory] = React.useState("workout-tracker");
 
   const [chosenDay, setChosenDay] = React.useState<DayIndex>(
-    (new Date().getDay() - 1) as DayIndex
+    ((new Date().getDay() + 6) % 7) as DayIndex
   );
 
   const [completedExercises, setCompletedExercises] = React.useState(
@@ -543,7 +543,7 @@ function Home() {
                               <DrawerDescription>
                                 <ul className="flex flex-col justify-start items-start gap-[5px] width-[100%] p-4">
                                   {[...Array(workout.sets)].map((_, index) => (
-                                    <li className="w-[100%]">
+                                    <li className="w-[100%]" key={index}>
                                       <p>Set number {index + 1}</p>
                                       <Input
                                         type="number"
