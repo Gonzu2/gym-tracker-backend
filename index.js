@@ -1,8 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const router = require("./routes/router");
-
+const userActionsRouter = require("./routes/userActionsRouter");
 const app = express();
 
 app.use(bodyParser.json());
@@ -16,9 +15,9 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.use("/", router);
+app.use("/user", userActionsRouter);
 
-const port = 4000;
+const port = 4001;
 
 const server = app.listen(port, () => {
   console.log(`Server successfully started on port ${port}`);
